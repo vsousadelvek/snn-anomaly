@@ -1,0 +1,61 @@
+=====================================================
+TEXTO 1 — WHATSAPP / INSTAGRAM (status/stories)
+Legenda pra acompanhar anomaly_h264.mp4
+=====================================================
+
+Opção A (curta):
+🧠⚡ Uma rede neural que aprende o "normal" e apita
+quando vê algo estranho — sem ninguém ter ensinado
+o que é anomalia. Repara no bloco magenta: é o objeto
+que a SNN nunca tinha visto 👀
+
+Opção B (com contexto):
+Detecção de anomalias com Spiking Neural Network:
+o modelo aprende sozinho os padrões normais da cena
+e o erro de reconstrução vira alarme. Treinamento
+100% sem labels. Projeto completo 👇
+github.com/vsousadelvek/snn-anomaly
+
+=====================================================
+TEXTO 2 — LINKEDIN (anexar anomaly_h264.mp4)
+=====================================================
+
+99% da vigilância é nada acontecendo. E se a rede neural que vigia só gastasse energia quando algo acontece?
+
+Quarto projeto da série de computação neuromórfica: detecção de anomalias em vídeo com um autoencoder de Spiking Neural Network.
+
+O que o vídeo mostra:
+
+→ Esquerda: a câmera — repare no objeto piscando que atravessa a cena
+→ Centro: a visão por eventos — a anomalia vira um bloco denso de spikes ON/OFF que o modelo nunca viu
+→ Direita: o score de anomalia ao vivo — quando cruza a linha vermelha, o alarme dispara
+
+Como funciona:
+
+• Um encoder convolucional de neurônios LIF comprime event frames numa representação latente; um decoder reconstrói
+• Treinado APENAS com a cena normal — zero labels, zero exemplos de anomalia
+• Erro de reconstrução alto = padrão desconhecido = anomalia
+• Threshold calibrado automaticamente (média + 4σ do baseline)
+
+O insight: detecção de anomalia não supervisionada combina perfeitamente com SNN. O caso de uso real (QC industrial, perímetro, monitoramento) é extremamente desbalanceado — quase tudo é "normal". Uma rede de pulsos gasta quase nada nos 99% tranquilos e acorda quando importa.
+
+Arquitetura implementada do zero em PyTorch, como toda a série:
+
+github.com/vsousadelvek/snn-anomaly — este projeto
+github.com/vsousadelvek/snn-ocr — OCR com SNN
+github.com/vsousadelvek/snn-gesture — gestos por eventos
+github.com/vsousadelvek/snn-tracker — tracking + classificação SNN
+
+Estou aberto a oportunidades em visão computacional e ML — freelas ou posições, adoraria conversar 👇
+
+#ComputerVision #SpikingNeuralNetworks #AnomalyDetection #Neuromorphic #UnsupervisedLearning #EdgeAI #OpenToWork
+
+=====================================================
+NOTAS PRA VOCÊ (não colar)
+=====================================================
+
+- Anexe demo/anomaly_h264.mp4 (formato já compatível)
+- O GIF demo/anomaly.gif anima no README do repo
+- Detalhe honesto pra entrevista: a anomalia do demo é sintética
+  (objeto piscando injetado no frame) — a detecção em si é real,
+  e o threshold é calibrado automaticamente nos primeiros ~3s

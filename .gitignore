@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+data/
+demo/chk*.png
+demo/anomaly.mp4
